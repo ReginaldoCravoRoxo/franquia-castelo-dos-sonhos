@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franquia Castelo dos Sonhos Buffet</title>
+<meta name="description" content="Franquia de buffet infantil com recebimento antes dos eventos, baixo estoque e equipe enxuta. Investimento a partir de R$ 500 mil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#0A8FD0;
+  --sky-light:#3DB0EC;
+  --royal:#0B4F94;
+  --navy:#12305A;
+  --cloud:#EAF6FD;
+  --pink:#FF3FA0;
+  --pink-deep:#D61F86;
+  --yellow:#FFD21F;
+  --orange:#F28A1E;
+  --purple:#7A3FA0;
+  --white:#fff;
+  --text:#23375A;
+  --serif:"Fredoka",system-ui,sans-serif;
+  --sans:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(20px,5vw,64px);
+  --max:1160px;
+  --r:28px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
+body{background:var(--white);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:8px 14px;z-index:99;border-radius:8px}
+.skip:focus{left:8px}
+
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;color:var(--royal)}
+h1{font-size:clamp(2.4rem,5.6vw,4.2rem);color:#fff;letter-spacing:-.005em}
+h2{font-size:clamp(1.9rem,3.8vw,2.9rem);max-width:18ch}
+h3{font-size:1.35rem;line-height:1.2}
+.lead{font-size:1.2rem;max-width:54ch}
+p{max-width:62ch}
+
+.btn{display:inline-block;background:var(--pink);color:#fff;font:600 1.1rem/1 var(--serif);padding:18px 32px;border:0;border-radius:999px;text-decoration:none;cursor:pointer;box-shadow:0 5px 0 var(--pink-deep);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--pink-deep)}
+.btn:active{transform:translateY(5px);box-shadow:0 0 0 var(--pink-deep)}
+.btn.light{background:#fff;color:var(--royal);box-shadow:0 5px 0 rgba(11,79,148,.35)}
+.btn.light:hover{box-shadow:0 3px 0 rgba(11,79,148,.35)}
+
+/* topo */
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 0 var(--cloud)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+header.top .logo img{height:64px;width:auto}
+header.top nav{display:flex;gap:30px;align-items:center}
+header.top nav a{text-decoration:none;font-weight:700;font-size:.98rem;color:var(--royal)}
+header.top nav a:not(.btn):hover{color:var(--pink-deep)}
+header.top nav .btn{padding:13px 22px;font-size:.98rem;color:#fff;box-shadow:0 4px 0 var(--pink-deep)}
+@media(max-width:860px){header.top nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{position:relative;background:linear-gradient(170deg,var(--sky) 10%,var(--sky-light));color:#fff;padding:clamp(40px,7vw,88px) 0 clamp(110px,14vw,190px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:center;position:relative;z-index:1}
+.hero .lead{margin:24px 0 36px;color:#fff;font-weight:600}
+.hero .actions{display:flex;flex-wrap:wrap;gap:16px}
+.hero h1{max-width:13ch}
+.photo{position:relative;justify-self:center;width:min(100%,400px)}
+.photo img.main{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:200px 200px 28px 28px;border:8px solid #fff;box-shadow:0 20px 40px rgba(11,79,148,.35)}
+.photo .star{position:absolute;width:64px}
+.photo .s1{top:-14px;right:-14px;animation:bob 4s ease-in-out infinite}
+.photo .s2{bottom:30px;left:-26px;width:48px;animation:bob 5s -2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(8deg)}}
+.deco{position:absolute;z-index:0;opacity:.35;width:36px}
+.cloudline{position:absolute;left:0;right:0;bottom:-1px;z-index:2;line-height:0}
+.cloudline svg{width:100%;height:clamp(60px,9vw,130px)}
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .photo{order:-1;width:min(70%,300px)}
+}
+
+/* números */
+.figures{padding:0 0 clamp(56px,8vw,96px);margin-top:-8px}
+.figures dl{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.fig{display:flex;flex-direction:column;background:var(--cloud);border-radius:var(--r);padding:26px 22px;border-top:8px solid var(--c)}
+.fig dd{font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,2.3vw,2rem);line-height:1.1;color:var(--c-text);margin-bottom:8px}
+.fig dt{order:2;font-weight:700;color:var(--navy);font-size:.98rem;line-height:1.35}
+.fig:nth-child(1){--c:var(--pink);--c-text:var(--pink-deep)}
+.fig:nth-child(2){--c:var(--sky);--c-text:var(--royal)}
+.fig:nth-child(3){--c:var(--yellow);--c-text:#B36A00}
+.fig:nth-child(4){--c:var(--purple);--c-text:var(--purple)}
+.figures .note{margin-top:22px;font-size:.88rem;opacity:.85;max-width:80ch}
+@media(max-width:900px){.figures dl{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.figures dl{grid-template-columns:1fr}}
+
+section.block{padding:clamp(64px,9vw,112px) 0}
+.head{margin-bottom:clamp(32px,5vw,56px)}
+.head .lead{margin-top:16px}
+
+/* vantagens */
+.adv{background:var(--cloud);position:relative}
+.adv-list{display:grid;gap:0}
+.adv-item{display:grid;grid-template-columns:76px 1fr;gap:24px;align-items:center;padding:24px 0;border-bottom:2px dashed rgba(10,143,208,.35)}
+.adv-item:first-child{border-top:2px dashed rgba(10,143,208,.35)}
+.adv-item .ico{width:76px;height:76px;border-radius:50%;background:var(--c,var(--sky));display:grid;place-items:center}
+.adv-item .ico img{width:44px;height:44px}
+.adv-item:nth-child(2) .ico{--c:var(--pink)}
+.adv-item:nth-child(3) .ico{--c:var(--purple)}
+.adv-item:nth-child(4) .ico{--c:var(--orange)}
+.adv-item:nth-child(5) .ico{--c:var(--royal)}
+.adv-item p{margin-top:4px}
+.cloudtop,.cloudbot{line-height:0}
+.cloudtop svg,.cloudbot svg{width:100%;height:clamp(40px,6vw,90px)}
+
+/* modelos */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.card{border-radius:var(--r);background:#fff;overflow:hidden;box-shadow:0 8px 0 var(--c),0 14px 30px rgba(11,79,148,.14);display:flex;flex-direction:column}
+.card:nth-child(1){--c:var(--sky)}
+.card:nth-child(2){--c:var(--pink)}
+.card:nth-child(3){--c:var(--purple)}
+.card:nth-child(4){--c:var(--orange)}
+.card:nth-child(4) h3{color:#C25F00}
+.card img{width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:center 30%}
+.card .body{padding:22px 24px 26px}
+.card h3{font-size:1.7rem;color:var(--c)}
+.card dl{margin-top:14px;display:grid;grid-template-columns:auto 1fr;gap:6px 16px}
+.card dt{font-weight:600;color:var(--navy)}
+.card dd{font-weight:700}
+@media(max-width:1020px){.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cards{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
+/* mercado */
+.market{background:var(--royal);color:#fff;position:relative}
+.market h2{color:#fff}
+.market .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px);align-items:center}
+.market .pic img{width:100%;max-width:420px;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);border:8px solid #fff;transform:rotate(-2deg)}
+.market ul{list-style:none;padding:0;margin-top:28px;display:grid;gap:16px}
+.market li{display:flex;gap:18px;align-items:baseline;border-bottom:2px dashed rgba(255,255,255,.3);padding-bottom:14px}
+.market li b{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);color:var(--yellow);min-width:7.5ch;font-weight:600;line-height:1.1}
+@media(max-width:860px){.market .wrap{grid-template-columns:1fr}.market .pic{order:-1}.market .pic img{max-width:300px}}
+
+/* eventos */
+.pills{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px;margin:0 0 48px}
+.pills li{padding:12px 22px;border-radius:999px;font:600 1.05rem var(--serif);color:#fff;background:var(--c)}
+.pills li:nth-child(5n+1){--c:var(--pink)}
+.pills li:nth-child(5n+2){--c:var(--sky)}
+.pills li:nth-child(5n+3){--c:var(--purple)}
+.pills li:nth-child(5n+4){--c:var(--royal)}
+.pills li:nth-child(5n+5){--c:#C25F00}
+.what{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.what div{border-top:6px solid var(--yellow);padding-top:14px}
+.what h3{margin-bottom:6px;font-size:1.2rem}
+@media(max-width:900px){.what{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.what{grid-template-columns:1fr}}
+
+/* suporte */
+.support{background:var(--cloud)}
+.support .wrap{display:grid;grid-template-columns:5fr 6fr;gap:clamp(28px,6vw,80px);align-items:center}
+.support .pic img{width:100%;border-radius:var(--r);border:8px solid #fff;box-shadow:0 14px 30px rgba(11,79,148,.18)}
+.steps{list-style:none;padding:0;margin:32px 0 0;counter-reset:s;display:grid;gap:22px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start}
+.steps li::before{content:counter(s);width:52px;height:52px;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;font:600 1.5rem var(--serif)}
+.steps li:nth-child(2)::before{background:var(--sky)}
+.steps li:nth-child(3)::before{background:var(--orange)}
+.steps p{margin-top:2px}
+.also{margin-top:32px;padding:20px 24px;background:#fff;border-radius:20px;border-left:8px solid var(--yellow)}
+.also strong{font-family:var(--serif);color:var(--royal);font-size:1.1rem}
+.also ul{margin:8px 0 0;padding-left:20px}
+@media(max-width:860px){.support .wrap{grid-template-columns:1fr}}
+
+/* formulário */
+.contact{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,88px);align-items:start}
+.contact aside .lead{margin-top:18px}
+.contact aside img{width:min(70%,240px);margin-top:32px}
+@media(max-width:900px){.contact{grid-template-columns:1fr}.contact aside img{display:none}}
+form{background:var(--cloud);padding:clamp(24px,4vw,44px);border-radius:var(--r);border:3px solid var(--sky)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid .full{grid-column:1/-1}
+.grid>div{display:flex;flex-direction:column}
+.grid>div>input,.grid>div>select,.grid>div>textarea{margin-top:auto}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+label{display:block;font-weight:700;font-size:.95rem;margin-bottom:6px;color:var(--navy)}
+input,select,textarea{width:100%;font:inherit;color:var(--text);background:#fff;border:2px solid #BFE0F3;padding:13px 14px;border-radius:14px}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--navy);outline-offset:0;border-color:var(--sky)}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--pink-deep)}
+textarea{min-height:96px;resize:vertical}
+form .btn{margin-top:28px;width:100%;text-align:center}
+.ok{display:none;margin-top:22px;padding:16px 18px;background:#fff;border-radius:14px;border-left:8px solid var(--sky);font-weight:600}
+.ok.show{display:block}
+.legal{font-size:.85rem;margin-top:16px;opacity:.85}
+
+footer{background:var(--navy);color:#fff;padding:44px 0 36px;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:center}
+footer img.abf{height:56px;width:auto}
+.abf-hero{display:flex;align-items:center;gap:14px;margin-top:36px;font-weight:700;font-size:.98rem}
+.abf-hero img{height:44px;width:auto}
+footer .slogan{font:600 1.3rem var(--serif);color:var(--yellow)}
+footer small{display:block;opacity:.8;margin-top:6px;max-width:60ch}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .photo .star{animation:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 100 100"><path d="M50 6l13 28 30 4-22 21 6 30-27-15-27 15 6-30L7 38l30-4z" fill="currentColor" stroke="currentColor" stroke-width="8" stroke-linejoin="round"/></symbol>
+</svg>
+<a class="skip" href="#contato">Ir para o formulário</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="Castelo dos Sonhos Buffet, início"><img src="assets/logo.png" alt="Castelo dos Sonhos Buffet"></a>
+    <nav aria-label="Principal">
+      <a href="#modelo">O negócio</a>
+      <a href="#modelos">Modelos</a>
+      <a href="#mercado">Mercado</a>
+      <a href="#suporte">Suporte</a>
+      <a class="btn" href="#contato">Quero ser franqueado</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <svg class="deco" style="top:12%;left:4%;color:#fff"><use href="#star"/></svg>
+    <svg class="deco" style="top:60%;left:46%;width:24px;color:var(--yellow);opacity:.6"><use href="#star"/></svg>
+    <svg class="deco" style="top:8%;left:52%;width:28px;color:#fff"><use href="#star"/></svg>
+    <div class="wrap">
+      <div>
+        <h1>Buffet infantil que recebe antes da festa.</h1>
+        <p class="lead">Uma franquia de eventos com equipe enxuta, estoque mínimo e pagamento antecipado. Investimento a partir de R$&nbsp;500 mil.</p>
+        <div class="actions">
+          <a class="btn" href="#contato">Quero ser franqueado</a>
+          <a class="btn light" href="#modelo">Entender o negócio</a>
+        </div>
+        <div class="abf-hero"><span>Somos filiados à</span><img src="assets/abf.png" alt="ABF, Associação Brasileira de Franchising"></div>
+      </div>
+      <div class="photo">
+        <img class="main" src="assets/fachada-plus.png" alt="Fachada azul e rosa de uma unidade Castelo dos Sonhos Buffet">
+        <svg class="star s1" style="color:var(--yellow)" aria-hidden="true"><use href="#star"/></svg>
+        <svg class="star s2" style="color:var(--pink)" aria-hidden="true"><use href="#star"/></svg>
+      </div>
+    </div>
+    <div class="cloudline" aria-hidden="true">
+      <svg viewBox="0 0 1440 130" preserveAspectRatio="none"><path fill="#fff" d="M0 130V74c40-26 92-26 130 0 30-40 100-52 150-22 34-34 108-36 146 0 38-38 116-30 148 10 40-30 108-26 138 8 44-40 130-36 160 6 36-26 96-24 128 8 40-34 116-30 146 8 34-24 88-22 120 4 36-30 100-22 124 10V130z"/></svg>
+    </div>
+  </section>
+
+  <section class="figures" aria-label="Números do negócio">
+    <div class="wrap">
+      <dl>
+        <div class="fig"><dd>R$&nbsp;500&nbsp;mil</dd><dt>Investimento a partir de</dt></div>
+        <div class="fig"><dd>R$&nbsp;450&nbsp;mil a R$&nbsp;1,5&nbsp;mi</dd><dt>Faturamento anual estimado</dt></div>
+        <div class="fig"><dd>20% a 40%</dd><dt>Lucro estimado</dt></div>
+        <div class="fig"><dd>24 a 36 meses</dd><dt>Retorno do investimento estimado</dt></div>
+      </dl>
+      <p class="note">Valores estimados pela franqueadora, sem garantia de resultado. Dependem da unidade e da praça. Consulte a Circular de Oferta de Franquia.</p>
+    </div>
+  </section>
+
+  <div class="cloudtop adv-top" aria-hidden="true" style="background:#fff">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#EAF6FD" d="M0 90V40c50-30 110-30 150 0 40-36 110-36 150-2 46-34 120-30 150 4 44-34 120-30 150 4 40-30 114-26 148 6 40-38 120-34 150 2 44-32 116-26 150 6 38-30 106-26 142 6V90z"/></svg>
+  </div>
+  <section class="block adv" id="modelo" style="padding-top:clamp(24px,4vw,48px)">
+    <div class="wrap">
+      <div class="head">
+        <h2>Um negócio simples de operar</h2>
+        <p class="lead">Buffet infantil parece complicado. Aqui, o dinheiro entra antes e quase nada fica parado em estoque.</p>
+      </div>
+      <div class="adv-list">
+        <div class="adv-item"><div class="ico"><img src="assets/icone-1.png" alt=""></div><div><h3>Zero inadimplência</h3><p>O cliente paga antes do evento. Você não corre atrás de cobrança depois da festa.</p></div></div>
+        <div class="adv-item"><div class="ico"><img src="assets/icone-2.png" alt=""></div><div><h3>Quase zero estoque</h3><p>Só se compra o que já foi vendido. O caixa não fica preso em produto parado.</p></div></div>
+        <div class="adv-item"><div class="ico"><img src="assets/icone-4.png" alt=""></div><div><h3>Baixo custo operacional</h3><p>A operação roda com 2 a 3 colaboradores.</p></div></div>
+        <div class="adv-item"><div class="ico"><img src="assets/icone-3.png" alt=""></div><div><h3>Alta lucratividade</h3><p>Lucro estimado de 20% a 40%, conforme o desempenho da unidade.</p></div></div>
+        <div class="adv-item"><div class="ico"><img src="assets/icone-5.png" alt=""></div><div><h3>Vários tipos de evento</h3><p>Além do aniversário, o espaço recebe colônia de férias, chá de bebê, formatura e mais. A agenda fica ocupada o ano todo.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="cloudbot" aria-hidden="true" style="background:#fff"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path fill="#EAF6FD" d="M0 0h1440v40c-40 26-96 26-130 0-40 34-112 36-150 2-40 32-114 30-148-2-44 34-120 30-150-6-40 30-110 26-146-4-38 36-118 32-148-4-44 32-116 26-150-6-40 28-110 24-142-4-34 30-96 26-126-2z"/></svg></div>
+
+  <section class="block" id="modelos">
+    <div class="wrap">
+      <div class="head">
+        <h2>Quatro modelos de unidade</h2>
+        <p class="lead">A diferença está no tamanho do espaço e na equipe. Nosso time ajuda a escolher o modelo certo para o seu capital e a sua cidade.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><img src="assets/fachada-standard.jpg" alt="Unidade Standard à noite, com fachada azul e estrelas" loading="lazy"><div class="body"><h3>Standard</h3><dl><dt>Área</dt><dd>400 m²</dd><dt>Equipe fixa</dt><dd>2 a 3 pessoas</dd></dl></div></article>
+        <article class="card"><img src="assets/fachada-plus.png" alt="Unidade Plus, com fachada azul e rosa" loading="lazy"><div class="body"><h3>Plus</h3><dl><dt>Área</dt><dd>470 m²</dd><dt>Equipe fixa</dt><dd>2 a 3 pessoas</dd></dl></div></article>
+        <article class="card"><img src="assets/fachada-master.jpg" alt="Unidade Master iluminada à noite, com arco de balões" loading="lazy"><div class="body"><h3>Master</h3><dl><dt>Área</dt><dd>550 m²</dd><dt>Equipe fixa</dt><dd>3 a 4 pessoas</dd></dl></div></article>
+        <article class="card"><img src="assets/fachada-prime.jpg" alt="Unidade Prime à noite, com carruagem dourada, arco de balões e livro gigante na entrada" style="object-position:42% 50%" loading="lazy"><div class="body"><h3>Prime</h3><dl><dt>Área</dt><dd>700 m²</dd><dt>Equipe fixa</dt><dd>3 a 4 pessoas</dd></dl></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block market" id="mercado">
+    <div class="wrap">
+      <div>
+        <h2>Um mercado que cresce com as famílias</h2>
+        <!-- TODO: confirmar fonte e ano destes números com a franqueadora (vêm do site antigo, imagem "Nosso mercado") -->
+        <ul>
+          <li><b>R$&nbsp;16,8&nbsp;bi</b><span>gastos pelos brasileiros com festas e eventos sociais em 2014 (Abrafesta/Data Popular).</span></li>
+          <li><b>+400%</b><span>de crescimento nos últimos 5 anos.</span></li>
+          <li><b>45&nbsp;mi</b><span>de crianças de 0 a 14 anos no público potencial.</span></li>
+        </ul>
+      </div>
+      <div class="pic"><img src="assets/foto-mercado.jpg" alt="Animadora de festa com chapéu colorido e braços abertos" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="block events">
+    <div class="wrap">
+      <div class="head"><h2>Muitas festas, o ano inteiro</h2></div>
+      <ul class="pills" aria-label="Tipos de evento">
+        <li>Aniversário</li><li>Chá revelação</li><li>Chá de bebê</li><li>Batizado</li>
+        <li>Formatura</li><li>Colônia de férias</li><li>Confraternização</li>
+      </ul>
+      <div class="what">
+        <div><h3>Espaço completo</h3><p>Tudo no mesmo lugar, com a comodidade que a família procura.</p></div>
+        <div><h3>Brinquedos por idade</h3><p>Opções para crianças de todas as idades.</p></div>
+        <div><h3>Cardápios exclusivos</h3><p>Diversas opções para agradar todos os gostos.</p></div>
+        <div><h3>Decoração temática</h3><p>O cliente escolhe o tema da festa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block support" id="suporte">
+    <div class="wrap">
+      <div class="pic"><img src="assets/equipe.jpg" alt="Equipe e animadores da rede Castelo dos Sonhos em uma festa" loading="lazy"></div>
+      <div>
+        <h2>Você não começa sozinho</h2>
+        <p class="lead" style="margin-top:16px">15 anos de experiência em buffet infantil, franquia desde 2018 e filiada à ABF. A rede acompanha a sua unidade do ponto à inauguração, e depois dela.</p>
+        <ol class="steps">
+          <li><div><h3>Ponto e obra</h3><p>Apoio na escolha do ponto, no projeto arquitetônico e na obra civil.</p></div></li>
+          <li><div><h3>Treinamento</h3><p>Treinamento e acompanhamento diário em todas as etapas da unidade.</p></div></li>
+          <li><div><h3>Inauguração</h3><p>Mais de 80% do faturamento de inauguração vem da agência de marketing digital especializada em buffet infantil.</p></div></li>
+        </ol>
+        <div class="also"><strong>Também fazem parte do pacote</strong>
+          <ul><li>Montagem e estruturação da unidade.</li><li>Recrutamento e treinamento da equipe fixa e de freelancers.</li><li>Compra e manutenção dos brinquedos por técnico especializado.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contato">
+    <div class="wrap contact">
+      <aside>
+        <h2>Vamos conversar sobre o seu investimento</h2>
+        <p class="lead">Preencha o formulário. Nosso time comercial liga no horário que você escolher.</p>
+        <img src="assets/logo.png" alt="" loading="lazy">
+      </aside>
+      <form id="form" novalidate>
+        <div class="grid">
+          <div class="full"><label for="nome">Nome</label><input id="nome" name="nome" autocomplete="name" required></div>
+          <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="tel">Telefone</label><input id="tel" name="tel" type="tel" autocomplete="tel" required></div>
+          <div><label for="uf">Estado</label>
+            <select id="uf" name="uf" required><option value="">Selecione</option>
+              <option>AC</option><option>AL</option><option>AM</option><option>AP</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MG</option><option>MS</option><option>MT</option><option>PA</option><option>PB</option><option>PE</option><option>PI</option><option>PR</option><option>RJ</option><option>RN</option><option>RO</option><option>RR</option><option>RS</option><option>SC</option><option>SE</option><option>SP</option><option>TO</option>
+            </select></div>
+          <div><label for="cidade">Cidade</label><input id="cidade" name="cidade" autocomplete="address-level2" required></div>
+          <div class="full"><label for="valor">Quanto você tem disponível para investir?</label>
+            <select id="valor" name="valor"><option value="">Selecione</option>
+              <option>Não tenho o valor disponível</option>
+              <option>Não tenho o valor, mas posso conseguir</option>
+              <option>Tenho uma parte e dependo da venda de um imóvel</option>
+              <option>Tenho disponível até R$ 500 mil</option>
+              <option>De R$ 500 mil a R$ 600 mil</option>
+              <option>Acima de R$ 600 mil</option>
+            </select></div>
+          <div><label for="prazo">Em quanto tempo pretende investir?</label>
+            <select id="prazo" name="prazo"><option value="">Selecione</option><option>Imediatamente</option><option>30 dias</option><option>90 dias</option><option>6 meses</option></select></div>
+          <div><label for="hora">Melhor horário para ligação</label>
+            <select id="hora" name="hora"><option value="">Selecione</option><option>7h às 9h</option><option>10h às 12h</option><option>13h às 14h</option><option>15h às 17h</option><option>18h às 20h</option></select></div>
+          <div class="full"><label for="obs">Conte um pouco sobre você e seu objetivo</label><textarea id="obs" name="obs"></textarea></div>
+        </div>
+        <button class="btn" type="submit">Quero ser franqueado</button>
+        <p class="ok" id="ok" role="status">Recebemos seus dados. Nosso time comercial entrará em contato no horário indicado.</p>
+        <p class="legal">Ao enviar, você autoriza o contato da Castelo dos Sonhos Franchising sobre a oferta de franquia.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="slogan">Você sonha, nós realizamos!</div>
+      <small>© Castelo dos Sonhos Franchising. Resultados estimados, sem garantia. Consulte a Circular de Oferta de Franquia.</small>
+    </div>
+    <img class="abf" src="assets/abf.png" alt="Selo de filiada à ABF, Associação Brasileira de Franchising" loading="lazy">
+  </div>
+</footer>
+
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target,req=[].slice.call(f.querySelectorAll('[required]'));
+  req.forEach(function(i){i.removeAttribute('aria-invalid')});
+  var bad=req.filter(function(i){return !i.value.trim()});
+  if(bad.length){bad.forEach(function(i){i.setAttribute('aria-invalid','true')});bad[0].focus();return}
+  /* TODO: enviar os dados ao CRM ou e-mail da franqueadora */
+  document.getElementById('ok').classList.add('show');
+  f.reset();
+});
+</script>
+</body>
+</html>
